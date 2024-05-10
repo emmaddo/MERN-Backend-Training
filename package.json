@@ -1,4 +1,14 @@
 {
+  "name": "mern-backend-training",
+  "version": "1.0.0",
+  "description": "mern backend training",
+  "main": "index.ts",
+  "scripts": {
+    "start": "nodemon --exec ts-node index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
     "@types/express": "^4.17.21",
     "nodemon": "^3.1.0",
