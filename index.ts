@@ -15,7 +15,7 @@ const result = addo + food;
 
 app.get("/", (req, res) => {
   // Send the plain text response to be displayed in the browser
-  res.send(`Result is:  ${result}`);
+  res.send(`The Result is:  ${result}`);
 });
 
 app.listen(port, () => {
