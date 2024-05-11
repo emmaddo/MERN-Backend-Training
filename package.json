@@ -2,19 +2,28 @@
   "name": "mern-backend-training",
   "version": "1.0.0",
   "description": "mern backend training",
-  "main": "index.ts",
+  "main": "Index.ts",
   "scripts": {
-    "start": "nodemon --exec ts-node index.ts"
+    "start": "nodemon --exec ts-node src/Index.ts --watch src",
+    "dev": "npm run start"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/express": "^4.17.21",
+    "@types/pino": "^7.0.5",
     "nodemon": "^3.1.0",
     "ts-node": "^10.9.2"
   },
   "dependencies": {
-    "express": "^4.19.2"
+    "@types/node": "^20.12.11",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "pino-http": "^10.1.0",
+    "swagger-ui-express": "^5.0.0",
+    "typescript": "^5.4.5"
   }
 }
