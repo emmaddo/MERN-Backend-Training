@@ -1,5 +1,5 @@
 import express, { Request, Response, NextFunction } from "express";
-import frontRoutes from './Routes/frontRoutes';
+import routes from './Routes/routes';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { serve, setup } from 'swagger-ui-express';
@@ -26,7 +26,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/docs', serve, setup(/* Your Swagger spec */));
 
 // Use the route modules
-app.use('/', frontRoutes);
+app.use(routes);
 // Register error handling middleware
 app.use(errorHandler);
 
