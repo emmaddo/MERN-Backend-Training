@@ -3,13 +3,11 @@ import routes from './Routes/routes';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { serve, setup } from 'swagger-ui-express';
-import pino, { Logger } from 'pino';
 
 
 dotenv.config();
 
 const app = express();
-const logger: Logger = pino();
 
 // Error handling middleware function
 function errorHandler(err: any, req: Request, res: Response, next: NextFunction) {
@@ -32,9 +30,9 @@ app.use(errorHandler);
 
 
 // Start the server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+//const PORT = process.env.PORT || 3000;
+//app.listen(PORT, () => {
+ // console.log(`Server is running on port ${PORT} YES O`);
+//});
 
 export default app;

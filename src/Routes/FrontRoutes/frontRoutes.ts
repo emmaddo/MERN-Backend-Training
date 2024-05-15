@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express';
-
+import { signup, login } from '../../Controllers/Auth/authController'; 
 const front_router = express.Router();
 
 front_router.get("/", (req: Request, res: Response) => {
@@ -14,7 +14,7 @@ front_router.get("/", (req: Request, res: Response) => {
     });
 });
 
-front_router.get("/About", (req: Request, res: Response) => {
+front_router.get("/about", (req: Request, res: Response) => {
     res.json({ 
         success: true,
         data: {
@@ -24,6 +24,8 @@ front_router.get("/About", (req: Request, res: Response) => {
     });
 });
 
+front_router.post('/signup', signup);
+front_router.post('/login', login);
 front_router.post('/', (req: Request, res: Response) => {
     // Handle POST requests
 });
@@ -31,7 +33,9 @@ front_router.post('/', (req: Request, res: Response) => {
 
 // Add wildcard route to handle any other URLs
 front_router.all('*', (req: Request, res: Response) => {
-    res.status(404).json({error: "Not Found"});
-});
+res.status(404).json({error: "Not Found"});
+ });
+
+
 
 export default front_router;
