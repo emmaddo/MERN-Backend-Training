@@ -20,7 +20,11 @@ front_router.get("/about", (req: Request, res: Response) => {
             
         }
     });
-});
+ });
+
+// front_router.get("/about", (req: Request, res: Response) => {
+//     res.send("Hello About Us Page");
+// });
 
 front_router.post('/api/auth/signup', signup);
 
