@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  backend:
+    build: .
+    ports:
+      - '5000:3000'
+    depends_on:
+      - mongodb
+    # Add any other configuration options for your backend service
+
+  mongodb:
+    image: mongo
+    ports:
+      - '27017:27017'
+    # Add any other configuration options for your MongoDB service
