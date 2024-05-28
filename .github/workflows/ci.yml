@@ -11,7 +11,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [20.x]
 
     steps:
       - name: Checkout code
@@ -19,12 +19,12 @@ jobs:
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
-        with:
-          #node-version: ${{ matrix.node-version }}
-          node-version: 20.x
 
       - name: Install dependencies
         run: npm install
+
+      - name: Grant execute permissions to Jest
+        run: chmod +x ./node_modules/.bin/jest
 
       - name: Run tests
         run: npm run test.ci
@@ -32,4 +32,3 @@ jobs:
           MONGO_DB_CONNECTION_STRING: ${{ secrets.MONGO_DB_CONNECTION_STRING }}
           TEST_USER_EMAIL: ${{ secrets.TEST_USER_EMAIL }}
           TEST_USER_PASSWORD: ${{ secrets.TEST_USER_PASSWORD }}
-          # Add other secrets as needed
