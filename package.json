@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon --exec ts-node src/Server.ts --watch src",
     "dev": "npm run start",
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "test.ci": "jest --no-watch --silent"
   },
   "keywords": [],
   "author": "",
