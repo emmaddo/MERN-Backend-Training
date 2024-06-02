@@ -1,9 +1,10 @@
 import express, { Request, Response } from 'express';
 import {signup} from '../../Controllers/Front/frontController'; 
+import logger from '../../Utility/Logger/Logger'; 
 const front_router = express.Router();
 
 front_router.get("", (req: Request, res: Response) => {
-        res.json({ 
+            res.json({ 
         success: true,
         data: {
             message: "Hello Home Page",

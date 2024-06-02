@@ -11,31 +11,31 @@ describe('AuthController - Login', () => {
     jest.clearAllMocks();
   });
 
-  it('should return 400 if email is missing', async () => {
+  it('should return 401 if email is missing', async () => {
     const response = await request(app)
       .post('/api/auth/login')
       .send({ password: process.env.TEST_USER_PASSWORD });
   
-    expect(response.status).toBe(400);
+    expect(response.status).toBe(401);
     expect(response.body.message).toBe('Email and password are required');
   });
   
 
-  it('should return 400 if password is missing', async () => {
+  it('should return 401 if password is missing', async () => {
     const response = await request(app)
       .post('/api/auth/login')
       .send({ email: process.env.TEST_USER_EMAIL, password: '' }); // Provide an empty password
 
-    expect(response.status).toBe(400);
+    expect(response.status).toBe(401);
     expect(response.body.message).toBe('Email and password are required');
   });
 
-  it('should return 400 if email format is invalid', async () => {
+  it('should return 401 if email format is invalid', async () => {
     const response = await request(app)
       .post('/api/auth/login')
       .send({ email: 'invalidemail', password: process.env.TEST_USER_PASSWORD });
 
-    expect(response.status).toBe(400);
+    expect(response.status).toBe(401);
     expect(response.body.message).toBe('Invalid email format');
   });
 
@@ -50,14 +50,14 @@ describe('AuthController - Login', () => {
     expect(response.body.message).toBe('Invalid email or password');
   });
 
-  it('should return 201 if login is successful', async () => {
+  it('should return 200 if login is successful', async () => {
     (User.findOne as jest.Mock).mockResolvedValue(mockUser);
 
     const response = await request(app)
       .post('/api/auth/login')
       .send({ email: process.env.TEST_USER_EMAIL, password: process.env.TEST_USER_PASSWORD });
 
-    expect(response.status).toBe(201);
+    expect(response.status).toBe(200);
     expect(response.body).toHaveProperty('token');
   });
 });

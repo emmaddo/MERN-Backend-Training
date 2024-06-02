@@ -1,5 +1,6 @@
 import express from 'express';
 import { login } from '../../Controllers/Auth/authController'; 
+import logger from '../../Utility/Logger/Logger'; 
 const auth_router = express.Router();
 
 // Apply auth middleware to all routes in this router
