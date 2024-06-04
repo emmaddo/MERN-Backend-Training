@@ -23,6 +23,16 @@ front_router.get("/about", (req: Request, res: Response) => {
     });
  });
 
+ front_router.get("/services", (req: Request, res: Response) => {
+    res.json({ 
+        success: true,
+        data: {
+            message: "Hello Services Page",
+            
+        }
+    });
+ });
+
 // front_router.get("/about", (req: Request, res: Response) => {
 //     res.send("Hello About Us Page");
 // });
@@ -34,7 +44,7 @@ front_router.post('/api/auth/signup', signup);
 //front_router.use('/api/auth', login);
 // Add wildcard route to handle any other URLs
 front_router.all('*', (req: Request, res: Response) => {
-res.status(404).json({error: "Not Foundfrrrrrr"});
+res.status(404).json({error: "Not Found"});
  });
 
 export default front_router;

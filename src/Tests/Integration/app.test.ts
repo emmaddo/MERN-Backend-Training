@@ -16,3 +16,12 @@ describe('GET /about', () => {
     expect(response.body).toEqual({ success: true, data: { message: "Hello About Us Page" } });
   });
 });
+
+describe('GET /services', () => {
+  it('should return Hello Services Page', async () => {
+    const response = await request(app).get('/services');
+    expect(response.status).toBe(200);
+    expect(response.body).toEqual({ success: true, data: {message: "Hello Services Page"}});
+  });
+});
+
